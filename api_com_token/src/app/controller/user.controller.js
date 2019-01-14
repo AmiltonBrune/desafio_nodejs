@@ -28,7 +28,7 @@ exports.signup = (req, res) => {
 			user.setRoles(roles).then(() => {
 				var text = 'Obrigado por se cadastrar {fulano}, sua senha é {senha}';
 				text = text.replace('{fulano}', req.body.nome)
-				require('../mail')(req.body.email, 'Cadastro realizado com sucesso!', text);
+				require('../config/mail')(req.body.email, 'Cadastro realizado com sucesso!', text);
 				res.send("Usuário registrado com sucesso!");
             });
 		}).catch(err => {

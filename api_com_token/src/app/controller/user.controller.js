@@ -26,6 +26,9 @@ exports.signup = (req, res) => {
 		  }
 		}).then(roles => {
 			user.setRoles(roles).then(() => {
+				var text = 'Obrigado por se cadastrar {fulano}, sua senha é {senha}';
+				text = text.replace('{fulano}', req.body.nome)
+				require('../mail')(req.body.email, 'Cadastro realizado com sucesso!', text);
 				res.send("Usuário registrado com sucesso!");
             });
 		}).catch(err => {
@@ -54,7 +57,7 @@ exports.signin = (req, res) => {
 		}
 		
 		var token = jwt.sign({ id: user.id }, config.secret, {
-		  expiresIn: 86400 // expires in 24 hours
+		  expiresIn: 3600 // expires in 24 hours
 		});
 		
 		res.status(200).send({ auth: true, accessToken: token });

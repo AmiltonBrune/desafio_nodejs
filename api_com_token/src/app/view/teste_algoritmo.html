@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Cálculo de Possibilidades</title>
+</head>
+<body>
+    <script>
+        /*
+            Para o desenvolvimento do algoritmo abaixo foi utlizada uma fórmula matemática.
+            A fórmula foi: (quantidade de usuarios)! / 
+            (quantidade de pessoas na sala)! * ((quantidade de usuarios) - (quantidade de pessoas na sala))!
+        */
+        let fatorial=1;
+        let explicaFator = '';
+        let num=parseInt(prompt("Digite a quantidade de usuários: "));
+        
+        for(let x = 1; x <= num; x++) {
+            fatorial=fatorial*x;
+
+            if(explicaFator != '')
+                explicaFator += 'x';
+            
+            explicaFator += x;
+        }
+        let fatorialSalas =1;
+        let explicaFatorSala = '';
+        let numPessoas = parseInt(prompt("Digite a quantidade de pessoas na sala"));
+        for (let y = 1; y <= numPessoas; y++){ 
+
+            fatorialSalas = fatorialSalas*y;
+            if(explicaFatorSala != '')
+
+                explicaFatorSala += 'x';
+
+            explicaFatorSala+= y;          
+        }
+
+        let numeroComplento = num-numPessoas;
+        let fatorialComplemento = 1;
+        let explicaFatorComplemento = '';
+
+        for (let z = 1; z <= numeroComplento; z++) {
+
+            fatorialComplemento=fatorialComplemento*z;
+            if(explicaFatorComplemento != '')
+                explicaFatorComplemento += 'x';
+
+            explicaFatorComplemento += z
+        }
+          
+        let calculoDePossibilidadesCombinacoes = (fatorial/(fatorialSalas*(fatorialComplemento)));
+        
+        //document.writeln(numeroComplento+"! = "+explicaFatorComplemento+" = "+fatorialComplemento);
+        //document.writeln('Quantidade de Reuniões = '+calculoDePossibilidadesCombinacoes);
+
+
+        for (let index = 0; index < calculoDePossibilidadesCombinacoes; index++) {
+            var frase = function(texto) {
+		document.write(texto + "<br><br>");
+	}
+
+	var sorteados = [];
+    
+    uniqueNumber([]);
+    
+    
+	for(i = 0; i < numPessoas ; i++) {
+		var sorteado = parseInt(Math.ceil(Math.random()*num));		
+		uniqueNumber(sorteados);
+		frase(sorteado);
+	}
+    
+    function uniqueNumber(array)
+    {
+        var number = parseInt(Math.ceil(Math.random()*num));
+        
+        if (array.indexOf(number) === -1) {
+            array.push(number); 
+        } else {
+            // Se quiser, pode remover esse else para "pular" o repetido
+            uniqueNumber(array);
+        }
+    }
+
+        }
+                
+    </script>
+</body>
+</html>

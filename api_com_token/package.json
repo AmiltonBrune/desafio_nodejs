@@ -1,0 +1,33 @@
+{
+  "name": "desafio",
+  "version": "1.0.0",
+  "description": "Desafio Node JS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/server.js"
+  },
+  "keywords": [
+    "Nodejs",
+    "Express",
+    "JWT",
+    "Sequelize",
+    "PostgreSQL",
+    "Authentication"
+  ],
+  "author": "Amilton Brune",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "jsonwebtoken": "^8.4.0",
+    "nodemailer": "^5.1.1",
+    "nodemailer-express-handlebars": "^3.0.0",
+    "path": "^0.12.7",
+    "pg": "^7.8.0",
+    "pg-hstore": "^2.3.2",
+    "request": "^2.88.0",
+    "sequelize": "^4.42.0"
+  }
+}

@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Cálculo de Possibilidades</title>
 </head>
+
 <body>
     <script>
         /*
@@ -13,80 +15,747 @@
             A fórmula foi: (quantidade de usuarios)! / 
             (quantidade de pessoas na sala)! * ((quantidade de usuarios) - (quantidade de pessoas na sala))!
         */
-        let fatorial=1;
-        let explicaFator = '';
-        let num=parseInt(prompt("Digite a quantidade de usuários: "));
-        
-        for(let x = 1; x <= num; x++) {
-            fatorial=fatorial*x;
+        /*  let fatorial=1;
+         let explicaFator = '';
+         let num=parseInt(prompt("Digite a quantidade de usuários: "));
+         
+         for(let x = 1; x <= num; x++) {
+             fatorial=fatorial*x;
+ 
+             if(explicaFator != '')
+                 explicaFator += 'x';
+             
+             explicaFator += x;
+         }
+         let fatorialSalas =1;
+         let explicaFatorSala = '';
+         let numPessoas = parseInt(prompt("Digite a quantidade de pessoas na sala"));
+         for (let y = 1; y <= numPessoas; y++){ 
+ 
+             fatorialSalas = fatorialSalas*y;
+             if(explicaFatorSala != '')
+ 
+                 explicaFatorSala += 'x';
+ 
+             explicaFatorSala+= y;          
+         }
+ 
+         let numeroComplento = num-numPessoas;
+         let fatorialComplemento = 1;
+         let explicaFatorComplemento = '';
+ 
+         for (let z = 1; z <= numeroComplento; z++) {
+ 
+             fatorialComplemento=fatorialComplemento*z;
+             if(explicaFatorComplemento != '')
+                 explicaFatorComplemento += 'x';
+ 
+             explicaFatorComplemento += z
+         }
+           
+         let calculoDePossibilidadesCombinacoes = (fatorial/(fatorialSalas*(fatorialComplemento)));
+         
+         //document.writeln(numeroComplento+"! = "+explicaFatorComplemento+" = "+fatorialComplemento);
+         //document.writeln('Quantidade de Reuniões = '+calculoDePossibilidadesCombinacoes);
+ 
+ 
+         for (let index = 0; index < calculoDePossibilidadesCombinacoes; index++) {
+             var frase = function(texto) {
+         document.write(texto + "<br><br>");
+     }
+ 
+     var sorteados = [];
+     
+     uniqueNumber([]);
+     
+     
+     for(i = 0; i < numPessoas ; i++) {
+         var sorteado = parseInt(Math.ceil(Math.random()*num));		
+         uniqueNumber(sorteados);
+         frase(sorteado);
+     }
+     
+     function uniqueNumber(array)
+     {
+         var number = parseInt(Math.ceil(Math.random()*num));
+         
+         if (array.indexOf(number) === -1) {
+             array.push(number); 
+         } else {
+             // Se quiser, pode remover esse else para "pular" o repetido
+             uniqueNumber(array);
+         }
+     }
+ 
+         }
+                  */
 
-            if(explicaFator != '')
-                explicaFator += 'x';
-            
-            explicaFator += x;
+
+
+        /* var reuniao = [];
+           var primeiroIntegrante = 'dev';
+           var segundoIntegrante = 'cto';
+           var terceiroIntegrante = 'cti';
+           var quartoIntegrante = 'ti';
+           
+           debugger
+           reuniao.push(primeiroIntegrante);
+           console.log(reuniao);
+           
+           if (primeiroIntegrante == segundoIntegrante){
+               console.log('não pode ter duas pessoas da mesma area nessa reuniaão');
+           }else{
+               reuniao.push(segundoIntegrante);
+               console.log(reuniao);
+           }
+
+           if (terceiroIntegrante === primeiroIntegrante || terceiroIntegrante === segundoIntegrante) {
+               console.log('não pode ter duas pessoas da mesma area nessa reuniaão');
+           }else{
+               reuniao.push(terceiroIntegrante);
+               console.log(reuniao);
+           }
+           if (quartoIntegrante == primeiroIntegrante || quartoIntegrante == segundoIntegrante || quartoIntegrante == terceiroIntegrante) {
+               console.log('não pode ter duas pessoas da mesma area nessa reuniaão');
+           }else{
+               reuniao.push(quartoIntegrante);
+               console.log(reuniao);
+           }
+           console.log(reuniao);
+           */
+        /* 
+                var funcionarios = [
+                    {
+                        nome: 'Pedro',
+                        cargo: 'CTO',
+                        id: 1
+                    },
+                    {
+                        nome: 'Ana',
+                        cargo: 'CTI',
+                        id: 2
+                    },
+                    {
+                        nome: 'Julia',
+                        cargo: 'DEV',
+                        id: 3
+                    },
+                    {
+                        nome: 'Carla',
+                        cargo: 'ANALISTA',
+                        id: 4
+                    },
+                    {
+                        nome: 'Helen',
+                        cargo: 'CTI',
+                        id: 5
+                    },
+                    {
+                        nome: 'Bianca',
+                        cargo: 'DEV',
+                        id: 6
+                    },
+                    {
+                        nome: 'Dayane',
+                        cargo: 'CTI',
+                        id: 7
+                    },
+                    {
+                        nome: 'Karen',
+                        cargo: 'CTO',
+                        id: 8
+                    },
+                    {
+                        nome: 'Leticia',
+                        cargo: 'ANALISTA',
+                        id: 9
+                    },
+                    {
+                        nome: 'Bruna',
+                        cargo: 'ANALISTA',
+                        id: 10
+                    },
+                    {
+                        nome: 'João',
+                        cargo: 'DEV',
+                        id: 11
+                    },
+                    {
+                        nome: 'Maria',
+                        cargo: 'CEO',
+                        id: 12
+                    },
+                    {
+                        nome: 'Karine',
+                        cargo: 'CEO',
+                        id: 13
+                    }
+                ]; */
+
+
+        var objeto = [
+            {
+                nome: 'Dantas',
+                email: 'amanda@amandsda..com',
+                telefone: '12345678',
+                cargo: 'analista',
+                interesse: 'iot',
+            },
+            {
+                nome: 'Dantas',
+                email: 'amanda@amandsda..com',
+                telefone: '12345678',
+                cargo: 'ceo',
+                interesse: 'iot',
+            },
+            {
+                nome: 'Dantas',
+                email: 'amanda@amandsda..com',
+                telefone: '12345678',
+                cargo: 'ceo',
+                interesse: 'iot',
+            },
+            {
+                nome: 'Dantas',
+                email: 'amanda@amandsda..com',
+                telefone: '12345678',
+                cargo: 'cto',
+                interesse: 'iot',
+            },
+            {
+                nome: 'Dantas',
+                email: 'amanda@amandsda..com',
+                telefone: '12345678',
+                cargo: 'cto',
+                interesse: 'iot',
+            },
+            {
+                nome: 'Dantas',
+                email: 'amanda@amandsda..com',
+                telefone: '12345678',
+                cargo: 'full',
+                interesse: 'iot',
+            },
+            {
+                nome: 'Dantas',
+                email: 'amanda@amandsda..com',
+                telefone: '12345678',
+                cargo: 'full',
+                interesse: 'iot',
+            },
+            {
+                nome: 'Dantas',
+                email: 'amanda@amandsda..com',
+                telefone: '12345678',
+                cargo: 'dev',
+                interesse: 'iot',
+            },
+            {
+                nome: 'Dantas',
+                email: 'amanda@amandsda..com',
+                telefone: '12345678',
+                cargo: 'dev',
+                interesse: 'iot',
+
+            },
+            {
+                nome: 'Dantas',
+                email: 'amanda@amandsda..com',
+                telefone: '12345678',
+                cargo: 'rpa',
+                interesse: 'iot',
+            },
+        ]
+        var pessoasAleatorias = [];
+        function geraPessoasAleatorias() {
+            for (var i = 0; i < 4; i++) {
+                var numeroAleatorio = Math.floor(Math.random() * 9);
+                pessoasAleatorias.push(objeto[numeroAleatorio]);
+            }
         }
-        let fatorialSalas =1;
-        let explicaFatorSala = '';
-        let numPessoas = parseInt(prompt("Digite a quantidade de pessoas na sala"));
-        for (let y = 1; y <= numPessoas; y++){ 
 
-            fatorialSalas = fatorialSalas*y;
-            if(explicaFatorSala != '')
+        function comparar() {
+            if (pessoasAleatorias[0].cargo == pessoasAleatorias[1].cargo ||
+                pessoasAleatorias[0].cargo == pessoasAleatorias[2].cargo ||
+                pessoasAleatorias[0].cargo == pessoasAleatorias[3].cargo) {
+                pessoasAleatorias.length = 0;
+                geraPessoasAleatorias();
+                comparar();
+            }
+            else if (
+                pessoasAleatorias[1].cargo == pessoasAleatorias[0].cargo ||
+                pessoasAleatorias[1].cargo == pessoasAleatorias[2].cargo ||
+                pessoasAleatorias[1].cargo == pessoasAleatorias[3].cargo) {
+                pessoasAleatorias.length = 0;
+                geraPessoasAleatorias();
+                comparar();
+            }
+            else if (
+                pessoasAleatorias[2].cargo == pessoasAleatorias[1].cargo ||
+                pessoasAleatorias[2].cargo == pessoasAleatorias[0].cargo ||
+                pessoasAleatorias[2].cargo == pessoasAleatorias[3].cargo) {
+                pessoasAleatorias.length = 0;
+                geraPessoasAleatorias();
+                comparar();
+            }
+            else if (
+                pessoasAleatorias[3].cargo == pessoasAleatorias[1].cargo ||
+                pessoasAleatorias[3].cargo == pessoasAleatorias[2].cargo ||
+                pessoasAleatorias[3].cargo == pessoasAleatorias[0].cargo) {
+                pessoasAleatorias.length = 0;
+                geraPessoasAleatorias();
+                comparar();
+            } else {
+                console.log('deu tudo certo')
+            }
 
-                explicaFatorSala += 'x';
-
-            explicaFatorSala+= y;          
         }
 
-        let numeroComplento = num-numPessoas;
-        let fatorialComplemento = 1;
-        let explicaFatorComplemento = '';
+        geraPessoasAleatorias();
+        comparar();
 
-        for (let z = 1; z <= numeroComplento; z++) {
+        console.log(pessoasAleatorias);
 
-            fatorialComplemento=fatorialComplemento*z;
-            if(explicaFatorComplemento != '')
-                explicaFatorComplemento += 'x';
+        /* var arraySorteio = [];
+        funcionarios.forEach((funcionario) => {
+            arraySorteio.push(funcionario.nome + ',' + funcionario.cargo);
+        });
 
-            explicaFatorComplemento += z
+        var sorteados = [];
+        var reuniao = [];
+        for (let index = 0; index < 4; index++) {
+            var posicaoSorteada = Math.floor((Math.random() * arraySorteio.length));
+            sorteados.push(arraySorteio[posicaoSorteada]);
         }
-          
-        let calculoDePossibilidadesCombinacoes = (fatorial/(fatorialSalas*(fatorialComplemento)));
-        
-        //document.writeln(numeroComplento+"! = "+explicaFatorComplemento+" = "+fatorialComplemento);
-        //document.writeln('Quantidade de Reuniões = '+calculoDePossibilidadesCombinacoes);
+
+        var primeiroIntegrante = sorteados[0].split(',');
+        var segundoIntegrante = sorteados[1].split(',');
+        var terceiroIntegrante = sorteados[2].split(',');
+        var quartoIntegrante = sorteados[3].split(',');
+        var reuniao = [];
+        console.log('ANTES', sorteados);
+        console.log(primeiroIntegrante[1]);
+        console.log(segundoIntegrante[1]);
 
 
-        for (let index = 0; index < calculoDePossibilidadesCombinacoes; index++) {
-            var frase = function(texto) {
-		document.write(texto + "<br><br>");
-	}
 
-	var sorteados = [];
-    
-    uniqueNumber([]);
-    
-    
-	for(i = 0; i < numPessoas ; i++) {
-		var sorteado = parseInt(Math.ceil(Math.random()*num));		
-		uniqueNumber(sorteados);
-		frase(sorteado);
-	}
-    
-    function uniqueNumber(array)
-    {
-        var number = parseInt(Math.ceil(Math.random()*num));
-        
-        if (array.indexOf(number) === -1) {
-            array.push(number); 
+        if ((primeiroIntegrante[1] != segundoIntegrante[1]) && (segundoIntegrante[1] != terceiroIntegrante[1] && (terceiroIntegrante[1] != quartoIntegrante[1]))) {
+            console.log(sorteados);
+
+        }else{
+            if ((primeiroIntegrante[1] == segundoIntegrante[1]) || (primeiroIntegrante[1] == terceiroIntegrante) || (primeiroIntegrante[1] == quartoIntegrante[1])) {
+            sorteados = [];
+            for (let index = 0; index < 4; index++) {
+
+                var posicaoSorteada = Math.floor((Math.random() * arraySorteio.length));
+                sorteados.push(arraySorteio[posicaoSorteada]);
+            }
+            reuniao.push(sorteados[0]);
+        }
+        if ((segundoIntegrante[1] == primeiroIntegrante[1]) || (segundoIntegrante[1] == terceiroIntegrante) || (segundoIntegrante[1] == quartoIntegrante[1])) {
+            sorteados = [];
+            for (let index = 0; index < 4; index++) {
+
+                var posicaoSorteada = Math.floor((Math.random() * arraySorteio.length));
+                sorteados.push(arraySorteio[posicaoSorteada]);
+            }
+            reuniao.push(sorteados[1]);
+        }
+        if ((terceiroIntegrante[1] == primeiroIntegrante[1]) || (terceiroIntegrante[1] == segundoIntegrante) || (terceiroIntegrante[1] == quartoIntegrante[1])) {
+            sorteados = [];
+            for (let index = 0; index < 4; index++) {
+
+                var posicaoSorteada = Math.floor((Math.random() * arraySorteio.length));
+                sorteados.push(arraySorteio[posicaoSorteada]);
+            }
+            reuniao.push(sorteados[2]);
+        }
+        if ((quartoIntegrante[1] == primeiroIntegrante[1]) || (quartoIntegrante[1] == segundoIntegrante) || (quartoIntegrante[1] == terceiroIntegrante[1])) {
+            sorteados = [];
+            for (let index = 0; index < 4; index++) {
+
+                var posicaoSorteada = Math.floor((Math.random() * arraySorteio.length));
+                sorteados.push(arraySorteio[posicaoSorteada]);
+            }
+            reuniao.push(sorteados[3]);
+        }
+        }
+
+
+
+
+        console.log('DEPOIS', sorteados);
+        console.log('REUNIAO', reuniao);
+
+ */
+        /* while ((segundoIntegrante[1] == primeiroIntegrante[1] && segundoIntegrante[1] == terceiroIntegrante[1] && segundoIntegrante[1] == quartoIntegrante[1])
+
+        ) {
+                var posicaoSorteada = Math.floor((Math.random() * arraySorteio.length));
+                sorteados[1].push(arraySorteio[posicaoSorteada]);
+        }while((terceiroIntegrante[1] == primeiroIntegrante[1] && terceiroIntegrante[1] == segundoIntegrante[1] && terceiroIntegrante[1] == quartoIntegrante[1])
+            ){
+                var posicaoSorteada = Math.floor((Math.random() * arraySorteio.length));
+                sorteados[2].push(arraySorteio[posicaoSorteada]);
+            }
+            while((quartoIntegrante[1] == primeiroIntegrante[1] && quartoIntegrante[1] == segundoIntegrante[1] && quartoIntegrante[1] == terceiroIntegrante[1])
+            ){
+                var posicaoSorteada = Math.floor((Math.random() * arraySorteio.length));
+                sorteados[2].push(arraySorteio[posicaoSorteada]);
+            } */
+
+
+
+
+
+
+        /*  while (segundoIntegrante[1] == terceiroIntegrante[1] && segundoIntegrante[1] == quartoIntegrante[1]) {
+             for (let index = 0; index < 4; index++) {
+                 var posicaoSorteada = Math.floor((Math.random() * arraySorteio.length));
+                 sorteados.push(arraySorteio[posicaoSorteada]);
+             }
+         }
+         while(terceiroIntegrante[1] == quartoIntegrante[1]){
+             for (let index = 0; index < 4; index++) {
+                 var posicaoSorteada = Math.floor((Math.random() * arraySorteio.length));
+                 sorteados.push(arraySorteio[posicaoSorteada]);
+             }
+         } */
+
+
+
+
+
+
+        /*  var arr = sorteados;
+         var novaArr = arr.filter(function (este, i) {
+             return arr.indexOf(este) == i;
+         })
+
+         let selecionanoPorCargo = arraySorteio.filter((cargos) => {
+             return cargos.cargo === 'DEV';
+         })
+         console.log('cargos', selecionanoPorCargo);
+         console.log(novaArr);
+  */
+
+        /*  var arraySorteio = [];
+         funcionarios.forEach((funcionario) => {
+             arraySorteio.push(funcionario.nome + ',' + funcionario.cargo);
+         });
+
+         var sorteados = [];
+         for (let index = 0; index < 4; index++) {
+             var posicaoSorteada = Math.floor((Math.random() * arraySorteio.length));
+             sorteados.push(arraySorteio[posicaoSorteada]);
+         }
+
+
+
+
+         var primeiroIntegrante = sorteados[0].split(',');
+         var segundoIntegrante = sorteados[1].split(',');
+         var terceiroIntegrante = sorteados[2].split(',');
+         var quartoIntegrante = sorteados[3].split(',');
+
+         var reuniao = [];
+
+
+         reuniao.push(arraySorteio[posicaoSorteada])
+
+         var primeiroIntegranteReuniao = reuniao[0].split(',');
+
+         //var terceiroIntegranteReuniao = reuniao[2].split(',');
+         //var quartoIntegranteReuniao = reuniao[3].split(',');
+
+
+             for (let i = 0; primeiroIntegrante[1] == primeiroIntegranteReuniao[1]; i++) {
+
+
+
+                     var posicaoSorteada = Math.floor((Math.random() * arraySorteio.length));
+                     sorteados.push(arraySorteio[posicaoSorteada]);
+
+
+             }
+             if (sorteados[0].length == 0) {
+                 var posicaoSorteada = Math.floor((Math.random() * arraySorteio.length));
+                 sorteados.push(arraySorteio[posicaoSorteada]);
+                 break;
+             }
+             reuniao.push(sorteados[0]);
+
+
+         while (true) {
+             var segundoIntegranteReuniao = reuniao[1].split(',');
+             for (let i = 0; segundoIntegrante[1] == primeiroIntegranteReuniao[1] || segundoIntegrante[1] == segundoIntegranteReuniao[1]; i++) {
+
+
+
+                     var posicaoSorteada = Math.floor((Math.random() * arraySorteio.length));
+                     sorteados.push(arraySorteio[posicaoSorteada]);
+
+
+             }
+             if (sorteados[1].length == 0) {
+                 var posicaoSorteada = Math.floor((Math.random() * arraySorteio.length));
+                 sorteados.push(arraySorteio[posicaoSorteada]);
+                 break;
+             }S
+
+             reuniao.push(sorteados[0])
+
+
+         }
+
+         console.log(reuniao);
+
+
+
+
+  */
+
+        /* var arr = sorteados; */
+
+
+        /*  var reuniao = [];
+         sorteados.forEach((element) => {
+             reuniao.push(element.nome+','+element.cargo)
+         });
+  */
+        //console.log(sorteados);
+
+        /* var novaArr = arr.filter(function (este, i) {
+            return arr.indexOf(este) == i;
+        })
+        //console.log(novaArr); //dá ['foo', 'bar']
+
+        Array.prototype.unique = function (a) {
+            return function () { return this.filter(a) }
+        }(function (a, b, c) {
+            return c.indexOf(a, b + 1) < 0
+        });
+
+        var myArr = sorteados; */
+        //console.log(myArr.unique());
+
+
+        /* if (!Array.prototype.hasOwnProperty('interpolate')) {
+            Array.prototype.interpolate = function (other) {
+                var limit = this.length < other.length ? other.length : this.length;
+                var out = [];
+
+                for (var i = 0; i < limit; i++) {
+                    if (this.length > 0) out.push(this.shift());
+                    if (other.length > 0) out.push(other.shift());
+                }
+
+                return out;
+            }
+        }
+ */
+
+
+
+
+
+
+
+
+
+        /*
+
+                do {
+                    flag = false;
+
+
+
+                    funcionarios.forEach((funcionario) => {
+                        arraySorteio.push(funcionario.nome + ' , ' + funcionario.cargo);
+                    });
+
+                    var sorteadosDois = [];
+                    var sorteados = [];
+                    for (let index = 0; index < 4; index++) {
+                        var posicaoSorteada = Math.floor((Math.random() * arraySorteio.length));
+                        sorteados.push(arraySorteio[posicaoSorteada]);
+                    }
+
+                    contador = 0;
+                    while (contador < 5) {
+                        var auxiliar = sorteados[contador];
+                        sorteados.forEach(s => {
+                            if (s == auxiliar) {
+                                flag = true;
+                            }
+                            else {
+                                sorteadosDois[contador] = s;
+                            }
+                        })
+                        if (flag) {
+                            break;
+                        }
+                    }
+
+
+                } while (flag = true);
+                console.log(sorteadosDois)
+                console.log(sorteados)
+                // console.log(sorteados[0])
+
+                console.log(sorteadosDois) */
+        // var reuniao = [];
+
+
+
+        /*  var primeiroIntegrante = sorteados[0].split(',');
+         var segundoIntegrante = sorteados[1].split(',');
+         var terceiroIntegrante = sorteados[2].split(',');
+         var quartoIntegrante = sorteados[3].split(',');
+
+
+         var posicaoSorteada = Math.floor((Math.random() * arraySorteio.length));
+         reuniao.push(arraySorteio[posicaoSorteada]);
+
+
+         var primeiroIntegrantereuniao = reuniao[0].split(',');
+
+         if (primeiroIntegrante[1] != primeiroIntegrantereuniao[1]) {
+             reuniao.push(sorteados[0]);
+         } else if (primeiroIntegrante[1] == primeiroIntegrantereuniao[1]) {
+             for (let index = 0; index < 4; index++) {
+                 var posicaoSorteada = Math.floor((Math.random() * arraySorteio.length));
+                 sorteados.push(arraySorteio[posicaoSorteada]);
+             }
+             if (primeiroIntegrante[1] != primeiroIntegrantereuniao[1]) {
+                 reuniao.push(sorteados[0]);
+             }
+         } */
+        /* if (segundoIntegrante[1] != primeiroIntegrantereuniao[1]) {
+            reuniao.push(sorteados[1]);
+        }
+        var segundoIntegrantereuniao = reuniao[1].split(',');
+        if (terceiroIntegrante[1] != primeiroIntegrantereuniao[1] && terceiroIntegrante[1] != segundoIntegrantereuniao[1]) {
+            reuniao.push(sorteados[2])
         } else {
-            // Se quiser, pode remover esse else para "pular" o repetido
-            uniqueNumber(array);
+            for (let index = 0; index < 4; index++) {
+                var posicaoSorteada = Math.floor((Math.random() * arraySorteio.length));
+                sorteados.push(arraySorteio[posicaoSorteada]);
+            }
         }
-    }
+        var terceiroIntegrantereuniao = reuniao[2].split(',');
+        if (quartoIntegrante[1] != primeiroIntegrantereuniao[1] && quartoIntegrante[1] != segundoIntegrantereuniao[1] && quartoIntegrante[1] != terceiroIntegrantereuniao[1]) {
+            reuniao.push(sorteados[3]);
+        } else {
+            for (let index = 0; index < 4; index++) {
+                var posicaoSorteada = Math.floor((Math.random() * arraySorteio.length));
+                sorteados.push(arraySorteio[posicaoSorteada]);
+            }
+        } */
+        /*  console.log('foiiiiiiiii', reuniao);
+
+         reuniao.push(sorteados[0]); */
+
+        /*  for (let x = 0; x < segundoIntegrante[1] == primeiroIntegrante[1]; x++) {
+             sorteados.pop(posicaoSorteada + ' - ' + arraySorteio[posicaoSorteada]);
+             var posicaoSorteada = Math.floor((Math.random() * arraySorteio.length));
+             sorteados.push(arraySorteio[posicaoSorteada]);
+
+         } */
+
+
+        /* for (let y = 0; y < terceiroIntegrante[1] == segundoIntegrante[1] || terceiroIntegrante[1] == primeiroIntegrante[1] ; y++) {
+                sorteados.pop(posicaoSorteada + ' - ' + arraySorteio[posicaoSorteada]);
+                var posicaoSorteada = Math.floor((Math.random() * arraySorteio.length));
+                sorteados.push(posicaoSorteada + ' - ' + arraySorteio[posicaoSorteada]);
 
         }
-                
+        for (let z = 0; z < quartoIntegrante[1] == terceiroIntegrante[1] || quartoIntegrante[1] == segundoIntegrante[1] || quartoIntegrante[1] == primeiroIntegrante[1] ; z++) {
+             sorteados.pop(posicaoSorteada + ' - ' + arraySorteio[posicaoSorteada]);
+                var posicaoSorteada = Math.floor((Math.random() * arraySorteio.length));
+                sorteados.push(posicaoSorteada + ' - ' + arraySorteio[posicaoSorteada]);
+
+        } */
+        //console.log(sorteados);
+        //console.log('reuniao',reuniao);
+
+        /* else {
+            var reniaoPosicao1 = reuniao[0];
+            reuniao.push(posicaoSorteada + ' - ' + arraySorteio[posicaoSorteada]);
+           if(reniaoPosicao1 == )
+            console.log(reuniao);
+        } */
+        //console.log(sorteados);
+
+
+
+
+
+        //console.log(sorteados);
+
+
+        /*  sorteados.forEach(array => {
+             for (let cont = 0; cont < 2; cont++) {
+                 while (array[cont] == array[cont++]) {
+                     var posicaoSorteada = Math.floor((Math.random() * arraySorteio.length));
+                     sorteados.push(posicaoSorteada + ' - ' + arraySorteio[posicaoSorteada]);
+                 }
+             }
+         }); */
+        /*  console.log(sorteados);
+         //alert(sorteados); */
+
+        //alert(JSON.stringify(arraySorteio));
+
+
+
+
+        /* var arraySorteio = [];
+        funcionarios.forEach((funcionario) => {
+            arraySorteio.push(funcionario.nome + ',' + funcionario.cargo);
+        });
+
+        var sorteados = [];
+        for (let i = 0; i < 4; i++) {
+            var posicaoSorteada = Math.floor((Math.random() * arraySorteio.length));
+            sorteados.push(posicaoSorteada + ' - ' + arraySorteio[posicaoSorteada]);
+        }
+
+
+        var primeiroIntegrante = sorteados[0].split(',');
+        var segundoIntegrante = sorteados[1].split(',');
+        console.log(sorteados);
+
+        var reuniao = [];
+        if (segundoIntegrante[1] == primeiroIntegrante[1]) {
+            sorteados.pop(sorteados[1])
+            console.log('não pode ter duas pessoas da mesma area nessa reuniaão');
+        } else {
+
+
+            reuniao.push([1]);
+
+        }
+        console.log(reuniao); */
+
+        /*  var terceiroIntegrante = sorteados[2].split(',');
+         console.log(terceiroIntegrante);
+         if (terceiroIntegrante[1] == primeiroIntegrante[1] || terceiroIntegrante[1] == segundoIntegrante[1]) {
+             var posicaoSorteada = Math.floor((Math.random() * arraySorteio.length));
+             sorteados[2].push(posicaoSorteada + ' - ' + arraySorteio[posicaoSorteada])
+         }
+         var quartoIntegrante = sorteados[3].split(',');
+         if (quartoIntegrante[1] == terceiroIntegrante[1] || quartoIntegrante[1] == segundoIntegrante[1] || quartoIntegrante[1] == primeiroIntegrante[1]) {
+             var posicaoSorteada = Math.floor((Math.random() * arraySorteio.length));
+             sorteados[3].push(posicaoSorteada + ' - ' + arraySorteio[posicaoSorteada])
+         }
+         console.log(sorteados); */
+
+
+
+
+        //alert(sorteados);
     </script>
 </body>
+
 </html>

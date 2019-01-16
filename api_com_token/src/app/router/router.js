@@ -17,11 +17,11 @@ module.exports = function(app) {
 	app.get('/api/test/admin', [authJwt.verifyToken, authJwt.isAdmin], users.adminBoard);
 
 
-    app.post('/api/funcionarios',  [authJwt.verifyToken], employees.create);
+    app.post('/api/funcionarios',   employees.create);
  
-    app.get('/api/funcionarios',  [authJwt.verifyToken], employees.findAll);
+    app.get('/api/funcionarios',   employees.findAll);
  
-    app.get('/api/funcionarios/:id',  employees.findById);
+    app.get('/api/funcionarios/:id',[authJwt.verifyToken],  employees.findById);
  
     app.put('/api/funcionarios', [authJwt.verifyToken], employees.update);
  
@@ -29,7 +29,8 @@ module.exports = function(app) {
 	
 	
 	
-    app.get('/api/reuniao',  meetings.findAll);
+	app.get('/api/reuniao/:interesseEmComum',  meetings.findById);
+	app.get('/api/reuniao', meetings.findAll);
  
    
 

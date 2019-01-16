@@ -3,6 +3,16 @@ const request = require('request');
 
 const Meeting = db.meeting;
 
+exports.findAll = (req, res) => {
+    Meeting.findAll().then(meeting => {
+        // Send All Employee to Client
+        res.json(meeting);
+    }).catch(err => {
+        console.log(err);
+        res.status(500).json({ msg: "erro", details: err });
+    });
+};
+
 // Post a Meeting
 exports.create = (req, res) => {
     // Save to PostgreSQL database
@@ -16,9 +26,9 @@ exports.create = (req, res) => {
 };
 
 // FETCH All Meeting
-exports.findAll = (req, res) => {
-    Meeting.findAll().then(meetings => {
-        let fatorial = 1;
+exports.findById = (req, res) => {
+    Meeting.findById().then(meetings => {
+        /* let fatorial = 1;
         let explicaFator = '';
         let num = 20
 
@@ -65,7 +75,7 @@ exports.findAll = (req, res) => {
         for (let index = 0; index < calculoDePossibilidadesCombinacoes; index++) {
             var frase = function (texto) {
 
-                request(`http://localhost:8080/api/funcionarios/${texto}`,
+                request(`http://localhost:8080/api/funcionarios`,
                     function (error, response, body) {
                         var resposta = JSON.parse(body);
                         console.log(resposta);
@@ -97,10 +107,94 @@ exports.findAll = (req, res) => {
 
         }
         // Send All meeting to Client
-
+ */
 
 
         //res.json(meetings);
+
+
+        request(`http://localhost:8080/api/funcionarios`,
+            (error, response, body) => {
+                var resposta = JSON.parse(body);
+
+                let iots = resposta.filter((interesses) => {
+
+                    return interesses.interesse === `${req.params.interesseEmComum}`;
+
+
+                });
+
+                var pessoas = [];
+                iots.forEach(element => {
+                    pessoas.push(element);
+                });
+                var pessoasAleatorias = [];
+                function geraPessoasAleatorias() {
+                    for (var i = 0; i < 4; i++) {
+                        var numeroAleatorio = Math.floor(Math.random() * iots.length);
+                        pessoasAleatorias.push(iots[numeroAleatorio]);
+                    }
+                }
+
+                function comparar() {
+                    if (pessoasAleatorias[0].cargo == pessoasAleatorias[1].cargo ||
+                        pessoasAleatorias[0].cargo == pessoasAleatorias[2].cargo ||
+                        pessoasAleatorias[0].cargo == pessoasAleatorias[3].cargo) {
+                        pessoasAleatorias.length = 0;
+                        geraPessoasAleatorias();
+                        comparar();
+                    }
+                    else if (
+                        pessoasAleatorias[1].cargo == pessoasAleatorias[0].cargo ||
+                        pessoasAleatorias[1].cargo == pessoasAleatorias[2].cargo ||
+                        pessoasAleatorias[1].cargo == pessoasAleatorias[3].cargo) {
+                        pessoasAleatorias.length = 0;
+                        geraPessoasAleatorias();
+                        comparar();
+                    }
+                    else if (
+                        pessoasAleatorias[2].cargo == pessoasAleatorias[1].cargo ||
+                        pessoasAleatorias[2].cargo == pessoasAleatorias[0].cargo ||
+                        pessoasAleatorias[2].cargo == pessoasAleatorias[3].cargo) {
+                        pessoasAleatorias.length = 0;
+                        geraPessoasAleatorias();
+                        comparar();
+                    }
+                    else if (
+                        pessoasAleatorias[3].cargo == pessoasAleatorias[1].cargo ||
+                        pessoasAleatorias[3].cargo == pessoasAleatorias[2].cargo ||
+                        pessoasAleatorias[3].cargo == pessoasAleatorias[0].cargo) {
+                        pessoasAleatorias.length = 0;
+                        geraPessoasAleatorias();
+                        comparar();
+                    } else {
+                        console.log('deu tudo certo')
+                    }
+
+                }
+
+                geraPessoasAleatorias();
+                comparar();
+
+                var nomesIntegrantesReuniao = [];
+                pessoasAleatorias.forEach(dados => {
+                    nomesIntegrantesReuniao.push(dados.nome)
+                });
+                
+                
+                Meeting.create({
+                    nome: `Reunião sobre ${req.params.interesseEmComum}`,
+                    nomeIntegrante1:`${nomesIntegrantesReuniao[0]}`,
+                    nomeIntegrante2:`${nomesIntegrantesReuniao[1]}`,
+                    nomeIntegrante3:`${nomesIntegrantesReuniao[2]}`,
+                    nomeIntegrante4:`${nomesIntegrantesReuniao[3]}`
+                });
+                
+                res.json(pessoasAleatorias);
+            });
+
+
+
     }).catch(err => {
         console.log(err);
         res.status(500).json({ msg: "erro", details: err });

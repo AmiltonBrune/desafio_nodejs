@@ -4,7 +4,7 @@ var bodyParser = require('body-parser');
 
 app.use(bodyParser.json())
 
- 
+
 require('./app/router/router.js')(app);
  
 const db = require('./app/config/db.config.js');

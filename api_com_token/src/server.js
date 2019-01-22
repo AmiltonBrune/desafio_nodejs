@@ -1,13 +1,11 @@
-var express = require('express');
-var app = express();
+var app = require('./config/custom-express')();
 var bodyParser = require('body-parser');
 
 app.use(bodyParser.json())
 
-
 require('./app/router/router.js')(app);
  
-const db = require('./app/config/db.config.js');
+const db = require('./config/db.config.js');
  
 const Role = db.role;
   

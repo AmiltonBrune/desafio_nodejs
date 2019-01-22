@@ -1,4 +1,4 @@
-const db = require('../config/db.config.js');
+const db = require('../../config/db.config.js');
 const request = require('request');
 
 const Meeting = db.meeting;

@@ -1,4 +1,4 @@
-const db = require('../config/db.config.js');
+const db = require('../../config/db.config.js');
 
 const Employee = db.employee;
 

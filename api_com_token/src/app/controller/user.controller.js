@@ -1,5 +1,5 @@
-const db = require('../config/db.config.js');
-const config = require('../config/config.js');
+const db = require('../../config/db.config.js');
+const config = require('../../config/config.js');
 const User = db.user;
 const Role = db.role;
  
@@ -28,7 +28,7 @@ exports.signup = (req, res) => {
 			user.setRoles(roles).then(() => {
 				var text = 'Obrigado por se cadastrar {fulano}, seja bem vindo ao nosso sistema';
 				text = text.replace('{fulano}', req.body.nome)
-				require('../config/mail')(req.body.email, 'Cadastro realizado com sucesso!', text);
+				require('../../config/mail')(req.body.email, 'Cadastro realizado com sucesso!', text);
 				res.send("Usuário registrado com sucesso!");
             });
 		}).catch(err => {

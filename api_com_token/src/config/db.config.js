@@ -19,10 +19,10 @@ const db = {};
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
  
-db.user = require('../model/user.model.js')(sequelize, Sequelize);
-db.role = require('../model/role.model.js')(sequelize, Sequelize);
-db.employee = require('../model/employee.model.js')(sequelize, Sequelize);
-db.meeting = require('../model/meeting.model.js')(sequelize, Sequelize);
+db.user = require('../app/model/user.model.js')(sequelize, Sequelize);
+db.role = require('../app/model/role.model.js')(sequelize, Sequelize);
+db.employee = require('../app/model/employee.model.js')(sequelize, Sequelize);
+db.meeting = require('../app/model/meeting.model.js')(sequelize, Sequelize);
  
 db.role.belongsToMany(db.user, { through: 'user_roles', foreignKey: 'roleId', otherKey: 'userId'});
 db.user.belongsToMany(db.role, { through: 'user_roles', foreignKey: 'userId', otherKey: 'roleId'});
